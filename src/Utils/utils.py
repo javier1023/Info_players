@@ -12,7 +12,6 @@ def normalize(s):
         s = s.replace(a, b).replace(a.upper(), b.upper())
     return s
 
-
 def delete_empty_values(lista):
     l2 = []
     for elem in lista:
