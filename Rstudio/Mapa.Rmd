@@ -1,0 +1,43 @@
+---
+title: "Untitled"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r 121}
+data<- read.csv("W:\\AAtercero\\VIS\\Trabajo\\EXPORT_DE_TABLEAU.csv",sep=';')
+```
+
+Graficamos mapa del mundo con el valor del valor de mercado generado:
+
+```{r 1}
+library(plotly)
+df <- read.csv("https://raw.githubusercontent.com/plotly/datasets/master/2014_world_gdp_with_codes.csv")
+
+medias<- read.csv("W:\\AAtercero\\VIS\\Trabajo\\Base_paises_mediaELO-VM.csv",sep=";")
+medias=medias[-65,]
+medias2<- read.csv("W:\\AAtercero\\VIS\\Trabajo\\Base_paises_media_valor_mercado.csv",sep=",")
+medias2=medias2[-65,]
+
+
+medias[,"Division"]=medias2$Media/medias$Media
+m=plot_ly(medias2, type='choropleth', locations=medias$CODE, z=medias$Division, text=medias$Pais, span = I(0))
+m
+
+```
+
+Vemos que hay países que "sesgan" los colores del resto de países, procedemos a eliminarlos y ajustamos las condiciones de la gráfica:
+
+```{r mapa2}
+
+
+paisesRep=c("Alemania","Argentina","Austria","Belgica","Bosnia-Herzegovina","Brasil","Camerun","Chile","Colomiba","Costa de Marfil", "Croacia","Dinamarca","Eslovaquia","Espana","Estados Unidos","Francia","Gales","Ghana","Grecia","Inglaterra","Irlanda","Italia","Japon","Mali","Mexico","Nigeria","Noruega","Paises Bajos","Polonia","Portugal","Republica Checa","Senegal","Serbia","Suecia","Suiza","Turquia","Urugay")
+
+datosMap=medias[which(medias$Pais %in% paisesRep),]
+
+m2=plot_ly(datosMap, type='choropleth', locations=datosMap$CODE, z=datosMap$Division, text=datosMap$Pais, span = I(0)) %>% layout(showlegend = FALSE)
+m2
+```
+

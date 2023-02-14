@@ -1,0 +1,46 @@
+---
+title: "Untitled"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r 121}
+data<- read.csv(a,sep=';')
+data <- data[!is.na(data$Valor.de.mercado),]
+data <- data[!is.na(data$Edad),]
+
+data[,"Division"]=data$Valor.de.mercado/data$ELO.Edad #Generamos el nuevo valor de mercado
+
+fr=1:nrow(data)
+fr2=as.character(fr)
+data=cbind(data,fr)
+data=cbind(data,fr2)
+
+
+
+
+```
+
+Procedemos a realizar la gráfica con sus filtros:
+
+```{r adaada}
+
+
+
+list.of.packages <- c("plotly", "dplyr", "crosstalk")
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+lapply(list.of.packages, require, character.only=TRUE)
+
+tx <- highlight_key(data)
+widgets <- bscols(filter_select("Equipo", "Equipos", tx, ~Equipo.actual),(filter_slider("Edades", "Edad", tx, ~Edad)),filter_select("Liga", "Ligas", tx, ~Competicion.principal),filter_select("Pierna predominante", "Piernas", tx, ~Pierna.predominante),widths = c(5, 5, 5,5))
+gl <- plot_ly(tx, x = ~fr, y = ~Division, showlegend = FALSE) %>% add_lines(line = list(color ='#44BC8C')) %>% layout(yaxis=list(title= "Valor de Mercado Generado",range(c(50000, 300000))),xaxis=list(title='Jugador'))
+bscols(widgets, gl, widths = c(5, 10))
+
+```
+
+
+

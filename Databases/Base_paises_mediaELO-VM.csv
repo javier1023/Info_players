@@ -1,0 +1,103 @@
+;Pais;Media;CODE
+1;Albania;2.69;ALB
+2;Alemania;2.40;DEU
+3;Angola;2.71;AGO
+4;Arabia Saudita;2.26;SAU
+5;Argelia;2.33;DZA
+6;Argentina;2.55;ARG
+7;Armenia;2.35;ARM
+8;Australia;2.36;AUS
+9;Austria;2.69;AUT
+10;Belgica;2.78;BEL
+11;Benin;2.52;BEN
+12;Bosnia-Herzegovina;1.92;BIH
+13;Brasil;2.67;BRA
+14;Bulgaria;2.86;BGR
+15;Burkina Faso;3.25;BCA
+16;Cabo Verde;3.00;CPV
+17;Camerun;2.60;CMR
+18;Canada;3.16;CAN
+19;Chad;1.75;TCD
+20;Chile;2.48;CHL
+21;China;2.34;CHN
+22;Chipre;2.52;CYP
+23;Colombia;2.45;COL
+24;Comoras;1.95;COM
+25;Corea del Sur;2.58;KOR
+26;Costa de Marfil;2.63;CIV
+27;Costa Rica;2.29;CRI
+28;Croacia;2.68;HRV
+29;Dinamarca;2.58;DNK
+30;Ecuador;2.57;ECU
+31;Egipto;2.77;EGY
+32;Escocia;2.53;NAN
+33;Eslovaquia;2.50;SVK
+34;Eslovenia;2.32;SVN
+35;Espana;2.51;ESP
+36;Estados Unidos;2.96;USA
+37;Finlandia;2.39;PHL
+38;Francia;2.50;FRA
+39;Gabon;2.54;GAB
+40;Gales;2.57;NAN
+41;Gambia;2.98;GMB
+42;Ghana;2.57;GHA
+43;Grecia;2.39;GRC
+44;Guadalupe;2.61;GLP
+45;Guinea;2.27;GIN
+46;Guinea-Bissau;2.72;GNB
+47;Honduras;2.62;HND
+48;Hungria;2.65;HUN
+49;Indonesia;3.21;IDN
+50;Inglaterra;2.62;GBR
+51;Irlanda;2.32;IRL
+52;Irlanda del Norte;2.30;NAN
+53;Isla de Man;3.46;IMN
+54;Islandia;2.24;ISL
+55;Israel;2.20;ISR
+56;Italia;2.28;ITA
+57;Jamaica;3.20;JAM
+58;Japon;2.59;JPN
+59;Kosovo;2.36;NAN
+60;Lituania;1.58;LTU
+61;Luxemburgo;3.52;LUX
+62;Macedonia del Norte;2.47;MKD
+63;Mali;2.55;MLI
+64;Marruecos;2.95;MAR
+65;Martinica;0.00;NAN
+66;Mayotte;2.24;MYT
+67;Mexico;2.57;MEX
+68;Montenegro;2.08;MNE
+69;Mozambique;2.42;MOZ
+70;Nicaragua;2.22;NIC
+71;Nigeria;2.60;NGA
+72;Noruega;2.66;NOR
+73;Nueva Zelanda;2.72;NZL
+74;Paises Bajos;2.77;NLD
+75;Panama;2.91;PAN
+76;Paraguay;2.62;PRY
+77;Peru;2.77;PER
+78;Polonia;2.57;POL
+79;Portugal;2.74;PRT
+80;Republica Checa;2.67;CZE
+81;Republica del Congo;2.12;COG
+82;Republica Democratica del Congo;2.46;CODE
+83;Republica Dominicana;2.40;DOM
+84;Rumania;2.08;ROU
+85;Rusia;2.35;RUS
+86;Senegal;2.48;SEN
+87;Serbia;2.50;SRB
+88;Sierra Leona;3.09;SLE
+89;Siria;2.88;SYR
+90;Sudafrica;1.06;ZAF
+91;Suecia;2.54;SWE
+92;Suiza;2.64;CHE
+93;Togo;2.73;TGO
+94;Turquia;2.77;TUR
+95;Ucrania;2.55;UKR
+96;Uganda;2.23;UGA
+97;Uruguay;2.67;URY
+98;Uzbekistan;2.79;UZB
+99;Venezuela;2.51;VEN
+100;Yibuti;2.21;DJI
+101;Zambia;3.37;ZMB
+102;Zimbabue;2.58;ZWE

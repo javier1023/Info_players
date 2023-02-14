@@ -1,0 +1,61 @@
+---
+title: "Untitled"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r 121}
+data<- read.csv("W:\\AAtercero\\VIS\\Trabajo\\EXPORT_DE_TABLEAU.csv",sep=';')
+```
+
+Graficamos los valores de mercado coloreando en función del nivel del equipo:
+```{r equipos top}
+library(openxlsx)
+tiers=read.xlsx("W:\\AAtercero\\VIS\\Trabajo\\tiers.xlsx")
+EquiposTop=tiers[which(tiers$`Tier1.(DENTRO/FUERA)`==TRUE),"Equipo.actual"]
+EquiposMed=tiers[which(tiers$`Tier2.(DENTRO/FUERA)` ==TRUE),"Equipo.actual"]
+EquiposMod=tiers[which(tiers$`Tier.3.(DENTRO/FUERA)` ==TRUE),"Equipo.actual"]
+
+
+
+EquiposTop=c(EquiposTop,'Bayern MÃƒÂ¼nchen')
+
+data[,'conjunto']=" "
+
+for(i in 1:nrow(data)){if ((data[i,"Equipo.actual"] %in% EquiposTop)==TRUE){data[i,"conjunto"]='Equipos Top'}
+  else if ((data[i,"Equipo.actual"] %in% EquiposMed)==TRUE){data[i,"conjunto"]='Equipos Medianos'}
+  else{data[i,"conjunto"]='Equipos Modestos'}}
+
+
+fig1 <- plot_ly(data = data, x = ~ELO.Edad, y = ~Valor.de.mercado, color = ~conjunto,hoverinfo='text')
+fig1
+```
+
+Vemos que Halaand (jugador) es un caso extremo el cual si eliminamos permite ver mucho mejor la gráfica, así que procedemos a eliminarlo y a ajustar la gráfica:
+
+```{r equipos top}
+
+data=data[-1060,]
+tiers=read.xlsx("W:\\AAtercero\\VIS\\Trabajo\\tiers.xlsx")
+EquiposTop=tiers[which(tiers$`Tier1.(DENTRO/FUERA)`==TRUE),"Equipo.actual"]
+EquiposMed=tiers[which(tiers$`Tier2.(DENTRO/FUERA)` ==TRUE),"Equipo.actual"]
+EquiposMod=tiers[which(tiers$`Tier.3.(DENTRO/FUERA)` ==TRUE),"Equipo.actual"]
+
+
+
+EquiposTop=c(EquiposTop,'Bayern MÃƒÂ¼nchen')
+
+data[,'conjunto']=" "
+
+for(i in 1:nrow(data)){if ((data[i,"Equipo.actual"] %in% EquiposTop)==TRUE){data[i,"conjunto"]='Equipos Top'}
+  else if ((data[i,"Equipo.actual"] %in% EquiposMed)==TRUE){data[i,"conjunto"]='Equipos Medianos'}
+  else{data[i,"conjunto"]='Equipos Modestos'}}
+
+
+fig2 <- plot_ly(data = data, x = ~ELO.Edad, y = ~Valor.de.mercado, color = ~conjunto,colors=c('#44BC8C','#4C2586','#EFEC22'),hoverinfo='text',text=~Nombre,hovertemplate=paste("<br>Nombre: %{text}</br>"),symbol=~conjunto,symbols = c('circle','square','x'))  %>% layout(legend = list(x = 0.1, y = 0.9),yaxis=list(title='Valor de mercado real'),xaxis=list(title='Valor de Mercado Generado'))
+
+fig2
+```

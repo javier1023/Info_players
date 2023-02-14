@@ -1,0 +1,28 @@
+---
+title: "Untitled"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Graficos ELO y valor de mercado coloreando por la edad:
+```{r 121}
+library(plotly)
+data<- read.csv("W:\\AAtercero\\VIS\\Trabajo\\EXPORT_DE_TABLEAU.csv",sep=';')
+fig1 <- plot_ly(data = data, x = ~ELO, y = ~Valor.de.mercado,color = ~Edad)
+
+fig1
+
+```
+
+Ajustamos la gráfica:
+
+```{r 123167}
+fig2 <- plot_ly(data = data, x = ~ELO, y = ~Valor.de.mercado, hoverinfo='text',text=~Nombre,color = ~Edad,colors=c('#4098F4','#5AD537','#E22707'),hovertemplate=paste("<br>Nombre: %{text}</br>","Edad: %{marker.color}","Valor de mercado: %{y}","ELO: %{x}")) %>% layout(showlegend = FALSE,yaxis=list(title='Valor de Mercado')) %>% 
+layout(plot_bgcolor='black') %>% 
+layout(paper_bgcolor='black')
+
+fig2
+```
