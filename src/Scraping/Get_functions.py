@@ -50,6 +50,7 @@ class dic_players:
             description = type_info.find_all('div', class_="table-head")
             if description[0].text == 'Personal data':
                 personal_data = type_info.find_all('div', class_="table-row")
+                #Cambio paa ver que funciona git
                 for pers_data in personal_data:
                     l = pers_data.text.split('\n')
                     l = utils.delete_empty_values(l)
